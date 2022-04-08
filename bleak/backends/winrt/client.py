@@ -311,7 +311,7 @@ class BleakClientWinRT(BaseBleakClient):
             self._session_closed_events.append(event)
             try:
                 self._requester.close()
-                await asyncio.wait_for(event.wait(), timeout=10)
+                await asyncio.wait_for(event.wait(), timeout=30)
             finally:
                 self._session_closed_events.remove(event)
 
